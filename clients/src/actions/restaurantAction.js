@@ -26,7 +26,7 @@ import {
 } from "../constants/restaurantConstant";
 
 // Action for listing RESTAURANTs
-export const list_all_restaurants = () => async (dispatch, getState) => {
+export const list_restaurant = () => async (dispatch, getState) => {
   try {
     dispatch({ type: RESTAURANT_LIST_REQUEST });
 

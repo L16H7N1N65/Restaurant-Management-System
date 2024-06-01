@@ -10,9 +10,9 @@ import LoaderHandler from "../../components/loader/LoaderHandler";
 
 /* Constants */
 import {
-    TABLE_UPDATE_RESET,
-    TABLE_DETAILS_RESET,
-    TABLE_DELETE_RESET,
+    RESTAURANT_UPDATE_RESET,
+    RESTAURANT_DETAILS_RESET,
+    RESTAURANT_DELETE_RESET,
 } from "../../constants/tableConstant";
 
 /* Actions */
@@ -46,9 +46,9 @@ const TableEditScreen = ({ history, match }) => {
     useEffect(() => {
         //after update redirect to users
         if (successUpdate) {
-            dispatch({ type: TABLE_UPDATE_RESET });
-            dispatch({ type: TABLE_DETAILS_RESET });
-            dispatch({ type: TABLE_DELETE_RESET });
+            dispatch({ type: RESTAURANT_UPDATE_RESET });
+            dispatch({ type: RESTAURANT_DETAILS_RESET });
+            dispatch({ type: RESTAURANT_DELETE_RESET });
 
             history.push("/table");
         }
