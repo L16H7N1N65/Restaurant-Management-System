@@ -1,30 +1,30 @@
 import axios from "axios";
 import {
-    RESTAURANT_LIST_REQUEST,
-    RESTAURANT_LIST_SUCCESS,
-    RESTAURANT_LIST_FAIL,
-    RESTAURANT_CREATE_REQUEST,
-    RESTAURANT_CREATE_SUCCESS,
-    RESTAURANT_CREATE_FAIL,
-    RESTAURANT_DETAILS_REQUEST,
-    RESTAURANT_DETAILS_SUCCESS,
-    RESTAURANT_DETAILS_FAIL,
-    RESTAURANT_UPDATE_REQUEST,
-    RESTAURANT_UPDATE_SUCCESS,
-    RESTAURANT_UPDATE_FAIL,
-    RESTAURANT_DELETE_REQUEST,
-    RESTAURANT_DELETE_SUCCESS,
-    RESTAURANT_DELETE_FAIL,
-    RESTAURANT_ALL_REQUEST,
-    RESTAURANT_ALL_SUCCESS,
-    RESTAURANT_ALL_FAIL,
+    TABLE_LIST_REQUEST,
+    TABLE_LIST_SUCCESS,
+    TABLE_LIST_FAIL,
+    TABLE_CREATE_REQUEST,
+    TABLE_CREATE_SUCCESS,
+    TABLE_CREATE_FAIL,
+    TABLE_DETAILS_REQUEST,
+    TABLE_DETAILS_SUCCESS,
+    TABLE_DETAILS_FAIL,
+    TABLE_UPDATE_REQUEST,
+    TABLE_UPDATE_SUCCESS,
+    TABLE_UPDATE_FAIL,
+    TABLE_DELETE_REQUEST,
+    TABLE_DELETE_SUCCESS,
+    TABLE_DELETE_FAIL,
+    TABLE_ALL_REQUEST,
+    TABLE_ALL_SUCCESS,
+    TABLE_ALL_FAIL,
 } from "../constants/tableConstant";
 
 //get all tables
 export const allTables = () => async (dispatch, getState) => {
     try {
         dispatch({
-            type: RESTAURANT_ALL_REQUEST,
+            type: TABLE_ALL_REQUEST,
         });
 
         //get user from state
@@ -43,12 +43,12 @@ export const allTables = () => async (dispatch, getState) => {
         const { data } = await axios.get(`/api/tables/all`, config);
 
         dispatch({
-            type: RESTAURANT_ALL_SUCCESS,
+            type: TABLE_ALL_SUCCESS,
             payload: data,
         });
     } catch (error) {
         dispatch({
-            type: RESTAURANT_ALL_FAIL,
+            type: TABLE_ALL_FAIL,
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
@@ -64,7 +64,7 @@ export const listTables = (keyword = "", pageNumber = "") => async (
 ) => {
     try {
         dispatch({
-            type: RESTAURANT_LIST_REQUEST,
+            type: TABLE_LIST_REQUEST,
         });
 
         //get user from state
@@ -86,12 +86,12 @@ export const listTables = (keyword = "", pageNumber = "") => async (
         );
 
         dispatch({
-            type: RESTAURANT_LIST_SUCCESS,
+            type: TABLE_LIST_SUCCESS,
             payload: data,
         });
     } catch (error) {
         dispatch({
-            type: RESTAURANT_LIST_FAIL,
+            type: TABLE_LIST_FAIL,
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
@@ -106,7 +106,7 @@ export const createTable = (table) => async (dispatch, getState) => {
 
     try {
         dispatch({
-            type: RESTAURANT_CREATE_REQUEST,
+            type: TABLE_CREATE_REQUEST,
         });
 
         //get table from state
@@ -125,12 +125,12 @@ export const createTable = (table) => async (dispatch, getState) => {
         //create table
         const { data } = await axios.post("/api/tables", { name }, config);
         dispatch({
-            type: RESTAURANT_CREATE_SUCCESS,
+            type: TABLE_CREATE_SUCCESS,
             payload: data,
         });
     } catch (error) {
         dispatch({
-            type: RESTAURANT_CREATE_FAIL,
+            type: TABLE_CREATE_FAIL,
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
@@ -142,7 +142,7 @@ export const createTable = (table) => async (dispatch, getState) => {
 //get table details
 export const listTableDetails = (id) => async (dispatch, getState) => {
     try {
-        dispatch({ type: RESTAURANT_DETAILS_REQUEST });
+        dispatch({ type: TABLE_DETAILS_REQUEST });
 
         //get user from state
         const {
@@ -159,12 +159,12 @@ export const listTableDetails = (id) => async (dispatch, getState) => {
         //api call to get table
         const { data } = await axios.get(`/api/tables/${id}`, config);
         dispatch({
-            type: RESTAURANT_DETAILS_SUCCESS,
+            type: TABLE_DETAILS_SUCCESS,
             payload: data,
         });
     } catch (error) {
         dispatch({
-            type: RESTAURANT_DETAILS_FAIL,
+            type: TABLE_DETAILS_FAIL,
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
@@ -177,7 +177,7 @@ export const listTableDetails = (id) => async (dispatch, getState) => {
 export const updateTable = (table) => async (dispatch, getState) => {
     try {
         dispatch({
-            type: RESTAURANT_UPDATE_REQUEST,
+            type: TABLE_UPDATE_REQUEST,
         });
 
         //get user from state
@@ -199,12 +199,12 @@ export const updateTable = (table) => async (dispatch, getState) => {
             config
         );
         dispatch({
-            type: RESTAURANT_UPDATE_SUCCESS,
+            type: TABLE_UPDATE_SUCCESS,
             payload: data,
         });
     } catch (error) {
         dispatch({
-            type: RESTAURANT_UPDATE_FAIL,
+            type: TABLE_UPDATE_FAIL,
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
@@ -217,7 +217,7 @@ export const updateTable = (table) => async (dispatch, getState) => {
 export const deleteTable = (id) => async (dispatch, getState) => {
     try {
         dispatch({
-            type: RESTAURANT_DELETE_REQUEST,
+            type: TABLE_DELETE_REQUEST,
         });
 
         //get user from state
@@ -234,11 +234,11 @@ export const deleteTable = (id) => async (dispatch, getState) => {
         //api call to delete table
         await axios.delete(`/api/tables/${id}`, config);
         dispatch({
-            type: RESTAURANT_DELETE_SUCCESS,
+            type: TABLE_DELETE_SUCCESS,
         });
     } catch (error) {
         dispatch({
-            type: RESTAURANT_DELETE_FAIL,
+            type: TABLE_DELETE_FAIL,
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message

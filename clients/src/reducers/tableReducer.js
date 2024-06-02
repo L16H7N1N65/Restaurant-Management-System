@@ -1,27 +1,27 @@
 import {
-  RESTAURANT_LIST_REQUEST,
-  RESTAURANT_LIST_SUCCESS,
-  RESTAURANT_LIST_FAIL,
-  RESTAURANT_LIST_RESET,
-  RESTAURANT_CREATE_REQUEST,
-  RESTAURANT_CREATE_SUCCESS,
-  RESTAURANT_CREATE_FAIL,
-  RESTAURANT_DETAILS_REQUEST,
-  RESTAURANT_DETAILS_SUCCESS,
-  RESTAURANT_DETAILS_FAIL,
-  RESTAURANT_DETAILS_RESET,
-  RESTAURANT_UPDATE_REQUEST,
-  RESTAURANT_UPDATE_SUCCESS,
-  RESTAURANT_UPDATE_FAIL,
-  RESTAURANT_UPDATE_RESET,
-  RESTAURANT_DELETE_REQUEST,
-  RESTAURANT_DELETE_SUCCESS,
-  RESTAURANT_DELETE_FAIL,
-  RESTAURANT_DELETE_RESET,
-  RESTAURANT_ALL_REQUEST,
-  RESTAURANT_ALL_SUCCESS,
-  RESTAURANT_ALL_FAIL,
-  RESTAURANT_ALL_RESET,
+  TABLE_LIST_REQUEST,
+  TABLE_LIST_SUCCESS,
+  TABLE_LIST_FAIL,
+  TABLE_LIST_RESET,
+  TABLE_CREATE_REQUEST,
+  TABLE_CREATE_SUCCESS,
+  TABLE_CREATE_FAIL,
+  TABLE_DETAILS_REQUEST,
+  TABLE_DETAILS_SUCCESS,
+  TABLE_DETAILS_FAIL,
+  TABLE_DETAILS_RESET,
+  TABLE_UPDATE_REQUEST,
+  TABLE_UPDATE_SUCCESS,
+  TABLE_UPDATE_FAIL,
+  TABLE_UPDATE_RESET,
+  TABLE_DELETE_REQUEST,
+  TABLE_DELETE_SUCCESS,
+  TABLE_DELETE_FAIL,
+  TABLE_DELETE_RESET,
+  TABLE_ALL_REQUEST,
+  TABLE_ALL_SUCCESS,
+  TABLE_ALL_FAIL,
+  TABLE_ALL_RESET,
 } from "../constants/tableConstant";
 
 export const tableListReducer = (
@@ -29,21 +29,21 @@ export const tableListReducer = (
   action
 ) => {
   switch (action.type) {
-      case RESTAURANT_LIST_REQUEST:
+      case TABLE_LIST_REQUEST:
           return { loading: true, tables: [] };
-      case RESTAURANT_LIST_SUCCESS:
+      case TABLE_LIST_SUCCESS:
           return {
               loading: false,
               tables: action.payload.tables,
               pages: action.payload.pages,
               page: action.payload.page,
           };
-      case RESTAURANT_LIST_FAIL:
+      case TABLE_LIST_FAIL:
           return {
               loading: false,
               error: action.payload,
           };
-      case RESTAURANT_LIST_RESET:
+      case TABLE_LIST_RESET:
           return { tables: [] };
       default:
           return state;
@@ -55,16 +55,16 @@ export const tableAllReducer = (
   action
 ) => {
   switch (action.type) {
-      case RESTAURANT_ALL_REQUEST:
+      case TABLE_ALL_REQUEST:
           return { loading: true, tables: [] };
-      case RESTAURANT_ALL_SUCCESS:
+      case TABLE_ALL_SUCCESS:
           return {
               tables: action.payload,
               loading: false,
           };
-      case RESTAURANT_ALL_FAIL:
+      case TABLE_ALL_FAIL:
           return { loading: false, error: action.payload };
-      case RESTAURANT_ALL_RESET:
+      case TABLE_ALL_RESET:
           return { tables: [] };
       default:
           return state;
@@ -73,11 +73,11 @@ export const tableAllReducer = (
 
 export const tableCreateReducer = (state = {}, action) => {
   switch (action.type) {
-      case RESTAURANT_CREATE_REQUEST:
+      case TABLE_CREATE_REQUEST:
           return { loading: true };
-      case RESTAURANT_CREATE_SUCCESS:
+      case TABLE_CREATE_SUCCESS:
           return { loading: false, success: true };
-      case RESTAURANT_CREATE_FAIL:
+      case TABLE_CREATE_FAIL:
           return { loading: false, error: action.payload };
       default:
           return state;
@@ -86,13 +86,13 @@ export const tableCreateReducer = (state = {}, action) => {
 
 export const tableDetailsReducer = (state = { table: {} }, action) => {
   switch (action.type) {
-      case RESTAURANT_DETAILS_REQUEST:
+      case TABLE_DETAILS_REQUEST:
           return { ...state, loading: true };
-      case RESTAURANT_DETAILS_SUCCESS:
+      case TABLE_DETAILS_SUCCESS:
           return { loading: false, table: action.payload };
-      case RESTAURANT_DETAILS_FAIL:
+      case TABLE_DETAILS_FAIL:
           return { loading: false, error: action.payload };
-      case RESTAURANT_DETAILS_RESET:
+      case TABLE_DETAILS_RESET:
           return { table: {} };
       default:
           return state;
@@ -101,13 +101,13 @@ export const tableDetailsReducer = (state = { table: {} }, action) => {
 
 export const tableUpdateReducer = (state = { table: {} }, action) => {
   switch (action.type) {
-      case RESTAURANT_UPDATE_REQUEST:
+      case TABLE_UPDATE_REQUEST:
           return { loading: true };
-      case RESTAURANT_UPDATE_SUCCESS:
+      case TABLE_UPDATE_SUCCESS:
           return { loading: false, success: true, table: action.payload };
-      case RESTAURANT_UPDATE_FAIL:
+      case TABLE_UPDATE_FAIL:
           return { loading: false, error: action.payload };
-      case RESTAURANT_UPDATE_RESET:
+      case TABLE_UPDATE_RESET:
           return { table: {} };
       default:
           return state;
@@ -116,13 +116,13 @@ export const tableUpdateReducer = (state = { table: {} }, action) => {
 
 export const tableDeleteReducer = (state = {}, action) => {
   switch (action.type) {
-      case RESTAURANT_DELETE_REQUEST:
+      case TABLE_DELETE_REQUEST:
           return { loading: true };
-      case RESTAURANT_DELETE_SUCCESS:
+      case TABLE_DELETE_SUCCESS:
           return { loading: false, success: true };
-      case RESTAURANT_DELETE_FAIL:
+      case TABLE_DELETE_FAIL:
           return { loading: false, error: action.payload };
-      case RESTAURANT_DELETE_RESET:
+      case TABLE_DELETE_RESET:
           return {};
       default:
           return state;
