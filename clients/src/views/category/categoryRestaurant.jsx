@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { list_restaurants, delete_a_restaurant } from '../actions/restaurantActions';
-import tableAddRestaurant from '../table/tableAddRestaurant';
-import Message from "../../components/message";
-import Loader from "../../components/loader";
+import { list_restaurants, delete_a_restaurant, add_a_restaurant } from '../actions/restaurantActions';
+import FormRestaurant from "../../components/form/formRestaurant";
+import Message from "../../components/messages/message";
+import Loader from "../../components/loaders/loader";
 
 function CategoryRestaurant() {
   const dispatch = useDispatch();
@@ -20,8 +20,13 @@ function CategoryRestaurant() {
     }
   };
 
+  const handleAdd = (restaurant) => {
+    dispatch(add_a_restaurant(restaurant));
+  };
+
   return (
     <div className="container mx-auto p-4">
+      <FormRestaurant onAdd={handleAdd} />
       <button onClick={() => dispatch(list_restaurants())} className="bg-blue-500 text-white px-4 py-2 rounded">
         Update
       </button>

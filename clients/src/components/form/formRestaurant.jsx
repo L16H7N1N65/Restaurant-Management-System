@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-
-function tableAddRestaurant({ onAdd }) {
+function formRestaurant({ onAdd }) {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [nbcouverts, setNbCouverts] = useState("");
@@ -14,6 +13,10 @@ function tableAddRestaurant({ onAdd }) {
     e.preventDefault();
     if (name.length < 3) {
       setError("The name must be at least 3 characters long");
+      return;
+    }
+    if (city.length < 2) {
+      setError("The city name must be at least 2 characters long");
       return;
     }
     if (!Number.isInteger(Number(nbcouverts))) {
@@ -69,6 +72,4 @@ function tableAddRestaurant({ onAdd }) {
   );
 }
 
-export default tableAddRestaurant;
-
-
+export default formRestaurant;
