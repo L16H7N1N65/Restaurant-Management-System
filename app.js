@@ -26,13 +26,13 @@ app.use('/api/restaurants', restaurantRoutes);
 
 
 // Initialize models and create tables
-const initializeModels = () => {
+const initializeModels = async () => {
   // console.log('Initializing models...');
   
-  const employeeModel = require('./backend/models/employees.js')(connection);
+  const employeeModel = require('./backend/models/employeesModel.js')(connection);
   // console.log('Employee model loaded.');
 
-  const restaurantModel = require('./backend/models/restaurant.js')(connection);
+  const restaurantModel = require('./backend/models/restaurantModel.js')(connection);
   // console.log('Restaurant model loaded.');
 
   // employeeModel.createTable();
@@ -40,8 +40,14 @@ const initializeModels = () => {
 
 };
 
-initializeModels();
+initializeModels().catch(console.error);
 console.log('Models initialized and tables ensured. //app.js');
+
+app.use((err, req, res, next) => {
+  console.error('Error message:', err.message);
+  res.status(500).send('Something broke!');
+});
+
 
 // Errors handling ------------------------------------------------here !!!!!
 

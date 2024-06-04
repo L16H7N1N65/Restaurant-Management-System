@@ -1,7 +1,7 @@
 // restaurantController.js
 
 const connection = require('../connection');
-const Restaurant = require('../models/restaurant')(connection);
+const Restaurant = require('../models/restaurantModel')(connection);
 
 
 exports.create_a_restaurant_table = (req, res) => {

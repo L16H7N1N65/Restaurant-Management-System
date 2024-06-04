@@ -1,7 +1,7 @@
 // employeeController.js
 
 const connection = require('../connection');
-const Employee = require('../models/employees')(connection);
+const Employee = require('../models/employeesModel')(connection);
 
 //console.log("Employee :"+Employee);
 

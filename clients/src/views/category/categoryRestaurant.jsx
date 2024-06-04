@@ -5,7 +5,7 @@ import FormRestaurant from "../../components/form/formRestaurant";
 import Message from "../../components/messages/message";
 import Loader from "../../components/loaders/loader";
 
-function CategoryRestaurant() {
+function categoryRestaurant() {
   const dispatch = useDispatch();
   const restaurantList = useSelector(state => state.restaurantList);
   const { loading, error, restaurants } = restaurantList;
@@ -46,6 +46,6 @@ function CategoryRestaurant() {
   );
 }
 
-export default CategoryRestaurant;
+export default categoryRestaurant;
 
 
