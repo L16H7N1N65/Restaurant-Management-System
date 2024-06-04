@@ -8,8 +8,8 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Route path="/restaurants" component={CategoryRestaurant} />
-        <Route path="/employees" component={CategoryEmployee} />
+        <Route path="/restaurants" component={categoryRestaurant} />
+        <Route path="/employees" component={categoryEmployee} />
       </div>
     </Router>
   );
@@ -51,5 +51,3 @@ export default App;
 // }
 
 // export default App;
-// cd /c/Users/ACS/Documents/nodejs/node-express-app/clients/node_modules
-// ln -s /c/Users/ACS/Documents/nodejs/node-express-app/clients/components components

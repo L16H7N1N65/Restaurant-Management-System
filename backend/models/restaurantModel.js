@@ -36,7 +36,7 @@ module.exports = (connection) => {
           console.log("Restaurants retrieved:");
         }
         callback(err, results);
-        // console.log("line 39 restaurant.js:", callback(err, results));
+        console.log("line 39 restaurant.js:", callback(err, results));
       });
     },
 

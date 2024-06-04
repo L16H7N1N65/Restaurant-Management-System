@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listEmployees as listEmployeesAction, deleteEmployee, createEmployee, updateEmployee } from "../../actions/employeeAction";
+
 import Message from "../../components/message";
 import Loader from "../../components/loader";
 
@@ -13,7 +14,7 @@ function categoryEmployee() {
   const employeeDelete = useSelector(state => state.employeeDelete);
   const { loading: loadingDelete, error: errorDelete, success: successDelete } = employeeDelete;
   
-  const [employeeDetails, setEmployeeDetails] = useState({firstName: '', lastName: '', hireDate: '', restaurantId: ''});
+  const [employeeDetails] = useState({firstName: '', lastName: '', hireDate: '', restaurantId: ''});
 
   useEffect(() => {
     dispatch(listEmployeesAction());
