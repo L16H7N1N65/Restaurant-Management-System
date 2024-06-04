@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const employeeController = require("../controllers/employeeController");
-require("../app");
+require("../../app");
 
 // const employeesRoutes = require("./routes/employeesRoutes");
 // app.use("/api/employees", employeesRoutes);

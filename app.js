@@ -2,9 +2,9 @@
 
 const express = require('express');
 const dotenv = require('dotenv');
-const connection = require('./connection');
-const employeesRoutes = require('./routes/employeesRoutes');
-const restaurantRoutes = require('./routes/restaurantRoutes');
+const connection = require('./backend/connection.js');
+const employeesRoutes = require('./backend/routes/employeesRoutes.js');
+const restaurantRoutes = require('./backend/routes/restaurantRoutes.js');
 // const employeeModel = require('./models/employees.js');
 // const restaurantModel = require('./models/restaurant.js');
 
@@ -29,10 +29,10 @@ app.use('/api/restaurants', restaurantRoutes);
 const initializeModels = () => {
   // console.log('Initializing models...');
   
-  const employeeModel = require('./models/employees.js')(connection);
+  const employeeModel = require('./backend/models/employees.js')(connection);
   // console.log('Employee model loaded.');
 
-  const restaurantModel = require('./models/restaurant.js')(connection);
+  const restaurantModel = require('./backend/models/restaurant.js')(connection);
   // console.log('Restaurant model loaded.');
 
   // employeeModel.createTable();
