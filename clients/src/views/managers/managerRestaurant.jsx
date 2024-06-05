@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { list_restaurants, delete_a_restaurant, add_a_restaurant } from '../actions/restaurantActions';
+import { list_restaurants, delete_a_restaurant, create_a_restaurant } from '../actions/restaurantActions';
 import FormRestaurant from "../../components/form/formRestaurant";
 import Message from "../../components/messages/message";
 import Loader from "../../components/loaders/loader";
 
-function categoryRestaurant() {
+function restaurantManager() {
   const dispatch = useDispatch();
   const restaurantList = useSelector(state => state.restaurantList);
   const { loading, error, restaurants } = restaurantList;
@@ -21,7 +21,7 @@ function categoryRestaurant() {
   };
 
   const handleAdd = (restaurant) => {
-    dispatch(add_a_restaurant(restaurant));
+    dispatch(create_a_restaurant(restaurant));
   };
 
   return (
@@ -46,6 +46,5 @@ function categoryRestaurant() {
   );
 }
 
-export default categoryRestaurant;
-
+export default restaurantManager;
 
