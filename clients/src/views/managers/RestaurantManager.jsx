@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { list_restaurants, delete_a_restaurant, create_a_restaurant } from '../actions/restaurantActions';
-import FormRestaurant from "../../components/form/formRestaurant";
-import Message from "../../components/messages/message";
-import Loader from "../../components/loaders/loader";
+import { list_restaurants, delete_a_restaurant, create_a_restaurant } from '../../actions/restaurantAction';
+import FormRestaurant from "../../components/form/FormRestaurant";
+import Message from "../../components/messages/Message";
+import Loader from "../../components/loaders/Loader";
 
-function restaurantManager() {
+function RestaurantManager() {
   const dispatch = useDispatch();
   const restaurantList = useSelector(state => state.restaurantList);
   const { loading, error, restaurants } = restaurantList;
@@ -46,5 +46,5 @@ function restaurantManager() {
   );
 }
 
-export default restaurantManager;
+export default RestaurantManager;
 

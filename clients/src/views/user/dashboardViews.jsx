@@ -18,7 +18,7 @@ import {
 } from "../components/loader/SkeletonLoaders";
 import { getStatistics } from "../actions/orderAction";
 
-const dashboardViews = ({ history }) => {
+const DashboardViews = ({ history }) => {
     const dispatch = useDispatch();
 
     //user state
@@ -408,4 +408,4 @@ const dashboardViews = ({ history }) => {
     );
 };
 
-export default dashboardViews;
+export default DashboardViews;

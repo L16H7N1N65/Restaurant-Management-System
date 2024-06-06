@@ -7,10 +7,10 @@ import {
   deleteEmployee,
 } from "../../actions/employeeAction";
 
-import Message from "../../components/messages/message";
-import Loader from "../../components/loaders/loader";
+import Message from "../../components/messages/Message";
+import Loader from "../../components/loaders/Loader";
 
-function employeeManager() {
+function EmployeeManager() {
   const dispatch = useDispatch();
 
   const employeeList = useSelector((state) => state.employeeList);
@@ -86,4 +86,4 @@ function employeeManager() {
   );
 }
 
-export default employeeManager;
+export default EmployeeManager;

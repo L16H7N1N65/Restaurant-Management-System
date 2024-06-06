@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/userAction";
-import Loader from "../../components/Loader";
-import Message from "../../components/Message";
+import Loader from "../../components/loaders/Loader";
+import Message from "../../components/messages/Message";
 
-const loginViews = ({ history }) => {
+const LoginViews = ({ history }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -123,4 +123,4 @@ const loginViews = ({ history }) => {
     );
 };
 
-export default loginViews;
+export default LoginViews;

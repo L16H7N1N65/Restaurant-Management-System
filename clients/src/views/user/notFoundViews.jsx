@@ -1,9 +1,9 @@
 import React from 'react';
 
-const notFoundViews = () => {
+const NotFoundViews = () => {
     return ( <h1>
         Not Found
     </h1> );
 }
  
-export default notFoundViews;
+export default NotFoundViews;

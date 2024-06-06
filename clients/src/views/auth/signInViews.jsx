@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import "./signInViews.css";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../actions/userAction";
-import Message from "../../components/Message";
-import Loader from "../../components/Loader";
+import Message from "../../components/messages/Message";
+import Loader from "../../components/loaders/Loader";
 
-const signInViews = ({ history }) => {
+const SignInViews = ({ history }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -122,4 +122,4 @@ const signInViews = ({ history }) => {
     );
 };
 
-export default signInViews;
+export default SignInViews;

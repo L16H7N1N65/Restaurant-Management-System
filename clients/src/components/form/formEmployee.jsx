@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function formEmployee({ onAdd }) {
+function FormEmployee({ onAdd }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [hireDate, setHireDate] = useState("");
@@ -65,4 +65,4 @@ function formEmployee({ onAdd }) {
   );
 }
 
-export default formEmployee;
+export default FormEmployee;

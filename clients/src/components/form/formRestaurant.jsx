@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function formRestaurant({ onAdd }) {
+function FormRestaurant({ onAdd }) {
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
   const [nbcouverts, setNbCouverts] = useState("");
@@ -72,4 +72,4 @@ function formRestaurant({ onAdd }) {
   );
 }
 
-export default formRestaurant;
+export default FormRestaurant;

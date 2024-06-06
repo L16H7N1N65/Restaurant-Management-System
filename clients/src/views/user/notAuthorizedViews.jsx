@@ -1,6 +1,6 @@
 import React from 'react';
 
-const notAuthorizedViews = () => {
+const NotAuthorizedViews = () => {
     return ( 
         <h1>
             No Authorized
@@ -8,4 +8,4 @@ const notAuthorizedViews = () => {
      );
 }
  
-export default notAuthorizedViews;
+export default NotAuthorizedViews;
