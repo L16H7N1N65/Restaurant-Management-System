@@ -1,21 +1,22 @@
 //connection.js
 
-const mysql = require("mysql");
-const dotenv = require("dotenv");
-dotenv.config();
-console.log("MySQL module loaded //connection.js");
+require('dotenv').config();
+const mysql = require('mysql');
+console.log('Connecting to the database... connection.js');
 
-let connection = mysql.createConnection({
-  database: process.env.DB_NAME,
+const connection = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT
 });
+console.log('Database connection parameters set. connection.js');
 
-// Connect to the database
 connection.connect((err) => {
   if (err) throw err;
-  console.log("Database connected successfully //connection.js");
+  console.log('Connected to the database.');
 });
 
 module.exports = connection;
+console.log('Database connection established.   connection.js');
