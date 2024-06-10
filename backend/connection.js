@@ -13,13 +13,13 @@ const connection = mysql.createConnection({
 });
 console.log('Database connection parameters set. connection.js');
 
-connection.connect((err) => {
-  if (err) {
-    console.error('An error occurred while connecting to the DB connection.js');
-    throw err;
-  }
-  console.log('Connected! connection.js');
-});
+// connection.connect((err) => {
+//   if (err) {
+//     console.error('An error occurred while connecting to the DB connection.js');
+//     throw err;
+//   }
+//   console.log('Connected! connection.js');
+// });
 
 module.exports = connection;
 console.log('Database connection established.   connection.js');

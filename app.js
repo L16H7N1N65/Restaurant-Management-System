@@ -15,13 +15,14 @@ const app = express();
 console.log('Starting the application app.js... //app.js');
 
 app.use(express.json());
-// console.log('Express JSON middleware configured.');
-// console.log(">>>>>>" +employeesRoutes);
+//console.log('Express JSON middleware configured.');
+//9uconsole.log(">>>>>>" +employeesRoutes);
+
 app.use('/api/employees', employeesRoutes);
-// console.log('Employee routes configured.');
+console.log('Employee routes configured.');
 
 app.use('/api/restaurants', restaurantRoutes);
-// console.log('Restaurant routes configured.');
+console.log('Restaurant routes configured.');
 
 
 
