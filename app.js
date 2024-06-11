@@ -1,66 +1,59 @@
 //app.js
-
 const express = require('express');
 const dotenv = require('dotenv');
 const connection = require('./backend/connection.js');
-const employeesRoutes = require('./backend/routes/employeesRoutes.js');
-const restaurantRoutes = require('./backend/routes/restaurantRoutes.js');
-// const employeeModel = require('./models/employees.js');
-// const restaurantModel = require('./models/restaurant.js');
+//const employeesRoutes = require('./backend/routes/employeesRoutes.js');
+//const restaurantRoutes = require('./backend/routes/restaurantRoutes.js');
+const routes = require('../backend/routes');
 
+app.use('/employees', routes.employeesRoutes);
+app.use('/restaurants', routes.restaurantRoutes);
 dotenv.config();
 
 const app = express();
-
 console.log('Starting the application app.js... //app.js');
 
 app.use(express.json());
-//console.log('Express JSON middleware configured.');
-//9uconsole.log(">>>>>>" +employeesRoutes);
 
-app.use('/api/employees', employeesRoutes);
-console.log('Employee routes configured.');
+app.use('/employees', employeesRoutes);
+console.log('Employee routes configured.', + employeesRoutes);
 
-app.use('/api/restaurants', restaurantRoutes);
+app.use('/restaurants', restaurantRoutes);
 console.log('Restaurant routes configured.');
-
-
 
 // Initialize models and create tables
 const initializeModels = async () => {
-  // console.log('Initializing models...');
-  
-  const employeeModel = require('./backend/models/employeesModel.js')(connection);
-  // console.log('Employee model loaded.');
+  try {
+    const employeeModel = require('./backend/models/employeesModel.js')(connection);
+    if (!employeeModel) {
+      console.log('Failed to load Employee model.');
+    } else {
+      console.log('Employee model loaded.');
+      employeeModel.createTable();
+      console.log('Employee table creation initiated.');
+    }
 
-  const restaurantModel = require('./backend/models/restaurantModel.js')(connection);
-  // console.log('Restaurant model loaded.');
+    const restaurantModel = require('./backend/models/restaurantModel.js')(connection);
+    if (!restaurantModel) {
+      console.log('Failed to load Restaurant model.');
+    } else {
+      console.log('Restaurant model loaded.');
+      restaurantModel.createTable();
+      console.log('Restaurant table creation initiated.');
+    }
 
-  // employeeModel.createTable();
-  // console.log('Employee table creation initiated.');
-
+  } catch (error) {
+    console.error('Error initializing models:', error);
+  }
 };
 
-initializeModels().catch(console.error);
+initializeModels();
 console.log('Models initialized and tables ensured. //app.js');
 
 app.use((err, req, res, next) => {
   console.error('Error message:', err.message);
   res.status(500).send('Something broke!');
 });
-
-
-// Errors handling ------------------------------------------------here !!!!!
-
-// app.use((req, res, err) => {
-//   // console.error('Error stack:', err.stack);
-//   console.log('Error message:', req, err.message);
-
-//   res.status(500).send('Something broke!');
-//   console.log('Error response sent.');
-// });
-
-
 
 module.exports = app;
 console.log('Application module exported. //app.js');

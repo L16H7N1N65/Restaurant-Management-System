@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, getDefaultMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import App from './App';
+
 import rootReducer from '../../clients/src/reducers/rootReducer';
 
 const store = configureStore({
